@@ -1,13 +1,19 @@
-import "./style.css"
-import ImageUploader from "./componentes/ImageUploader";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./style.css";
+import NavBar from "./componentes/NavBar";
+import Home from "./Paginas/Home";
+import Contact from "./Paginas/Contacto";
 
 export default function App() {
   return (
-    <main className="container">
-      <h1>Subir imagen</h1>
-      <p>Subir una imagen y se va a mostrar aquí.</p>
-
-      <ImageUploader />
-    </main>
+    <BrowserRouter>
+      <NavBar />
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contacto" element={<Contact />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }

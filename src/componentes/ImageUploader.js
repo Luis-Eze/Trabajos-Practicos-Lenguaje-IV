@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FileDropZone from "./FileDropZone";
 import ImagePreview from "./ImagePreview";
-import { formatBytes, isImageFile } from "../utils/file";
+import { formatBytes, isImageFile } from "../utilidades/file";
 
 export default function ImageUploader() {
   const [msg, setMsg] = useState("");
