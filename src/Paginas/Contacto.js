@@ -1,3 +1,4 @@
+// src/Paginas/Contacto.js
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Modal from "../componentes/Modal";
@@ -32,7 +33,7 @@ export default function Contact() {
     e.preventDefault();
     const form = formRef.current;
     const honeypot = form.website.value;
-    if (honeypot) return; // bot
+    if (honeypot) return;
 
     const v = validate(form);
     setErrors(v);
@@ -48,7 +49,7 @@ export default function Contact() {
       );
       form.reset();
       setStatus({ sending: false, msg: "¡Mensaje enviado!" });
-      setOpenModal(true); // ventana de confirmación
+      setOpenModal(true);
     } catch (err) {
       console.error(err);
       setStatus({ sending: false, msg: "Ocurrió un error al enviar. Probá nuevamente." });
@@ -60,38 +61,52 @@ export default function Contact() {
       <h1>Contacto</h1>
       <p>Dejanos tu mensaje y te respondemos por correo.</p>
 
-      <form ref={formRef} onSubmit={onSubmit} className="contact-form">
-        <label>
-          Nombre
-          <input name="from_name" type="text" placeholder="Tu nombre" />
-          {errors.from_name && <span className="field-error">{errors.from_name}</span>}
-        </label>
+      <div className="contact-layout">
+        <form ref={formRef} onSubmit={onSubmit} className="contact-form">
+          <label>
+            Nombre
+            <input name="from_name" type="text" placeholder="Tu nombre" />
+            {errors.from_name && <span className="field-error">{errors.from_name}</span>}
+          </label>
 
-        <label>
-          Dirección de Correo
-          <input name="from_email" type="email" placeholder="tu@email.com" />
-          {errors.from_email && <span className="field-error">{errors.from_email}</span>}
-        </label>
+          <label>
+            Dirección de Correo
+            <input name="from_email" type="email" placeholder="tu@email.com" />
+            {errors.from_email && <span className="field-error">{errors.from_email}</span>}
+          </label>
 
-        <label>
-          Mensaje
-          <textarea name="message" rows="5" placeholder="Escribí tu consulta..." />
-          {errors.message && <span className="field-error">{errors.message}</span>}
-        </label>
+          <label>
+            Mensaje
+            <textarea name="message" rows="5" placeholder="Escribí tu consulta..." />
+            {errors.message && <span className="field-error">{errors.message}</span>}
+          </label>
 
-        <input type="text" name="website" autoComplete="off" tabIndex="-1" className="hp" />
+          {/* Honeypot */}
+          <input type="text" name="website" autoComplete="off" tabIndex="-1" className="hp" />
 
-        <button type="submit" className="btn" disabled={status.sending}>
-          {status.sending ? "Enviando..." : "Enviar"}
-        </button>
+          <button type="submit" className="btn" disabled={status.sending}>
+            {status.sending ? "Enviando..." : "Enviar"}
+          </button>
 
-        <output role="status" aria-live="polite" className="msg">
-          {status.msg}
-        </output>
-      </form>
+          <output role="status" aria-live="polite" className="msg">
+            {status.msg}
+          </output>
+        </form>
+
+        <aside className="map-wrap" aria-label="Mapa">
+          <iframe
+            title="Universidad Católica de Salta"
+            className="map-iframe"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19347.03569213855!2d-65.39733092397984!3d-24.744895009569863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc14f9aaaaaab%3A0x69dac60239564277!2sUniversidad%20Cat%C3%B3lica%20de%20Salta!5e0!3m2!1ses-419!2sar!4v1759374266423!5m2!1ses-419!2sar"
+          />
+        </aside>
+      </div>
 
       <Modal open={openModal} onClose={() => setOpenModal(false)} title="¡Correo enviado!">
-        <p>El mensaje se envia correctamente. Te responderemos a la brevedad.</p>
+        <p>El mensaje se envió correctamente. Te responderemos a la brevedad.</p>
       </Modal>
     </>
   );
