@@ -121,7 +121,7 @@ p { color: var(--muted); margin-top: 0; }
 .nav-link:hover { background:#f3f4f6; color: var(--text); }
 .nav-link.active { background: var(--accent-ghost); color: var(--text); }
 
-/* ====== CONTACT FORM ====== */
+/* ====== CONTACTO ====== */
 .contact-form { background: var(--card); border:1px solid #e5e7eb; border-radius:12px; padding:1rem; margin-top:1rem; }
 .contact-form label { display:block; margin-bottom:.75rem; color: var(--text); }
 .contact-form input[type="text"],
