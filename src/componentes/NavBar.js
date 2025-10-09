@@ -20,6 +20,11 @@ export default function NavBar() {
               Contacto
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/api" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+              Cotizaciones Dolar
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
