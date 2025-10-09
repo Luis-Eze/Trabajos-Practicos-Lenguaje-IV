@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Trabajos-Practicos-Lenguaje-IV/static/css/main.274c16be.css",
-    "main.js": "/Trabajos-Practicos-Lenguaje-IV/static/js/main.b7016c03.js",
+    "main.js": "/Trabajos-Practicos-Lenguaje-IV/static/js/main.a57fe775.js",
     "index.html": "/Trabajos-Practicos-Lenguaje-IV/index.html",
     "main.274c16be.css.map": "/Trabajos-Practicos-Lenguaje-IV/static/css/main.274c16be.css.map",
-    "main.b7016c03.js.map": "/Trabajos-Practicos-Lenguaje-IV/static/js/main.b7016c03.js.map"
+    "main.a57fe775.js.map": "/Trabajos-Practicos-Lenguaje-IV/static/js/main.a57fe775.js.map"
   },
   "entrypoints": [
     "static/css/main.274c16be.css",
-    "static/js/main.b7016c03.js"
+    "static/js/main.a57fe775.js"
   ]
 }
